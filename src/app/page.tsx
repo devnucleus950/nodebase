@@ -1,40 +1,22 @@
-import { getQueryClient, trpc } from "@/trpc/server";
 
-import { Client } from "./client";
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { Suspense } from "react";
+import { authClient } from "@/lib/auth-client"
+import { requireAuth } from "@/lib/auth-utils"
+import { caller } from "@/trpc/server";
+import { LogoutBtn } from "./logout";
 
-export default async function Home () {
+export default async function Home  () {
 
-  const queryClient = getQueryClient();
+  await requireAuth();
 
-  void queryClient.prefetchQuery(trpc.getUsers.queryOptions());
-
-  return <div>
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <Suspense fallback={<p>laoding...</p>}>
-       <Client/>
-      </Suspense>
-    </HydrationBoundary>
-  </div>
+  const data = await caller.getUsers()
+  
+  return (
+    <div className=" p-5">
+      Protected server component
+      {JSON.stringify(data)}
+      <LogoutBtn/>
+    </div>
+  )
 }  
 
 
-// for "use client" but this has a latency
-
-
-// import { caller } from "@/trpc/server";
-// import { useQuery } from "@tanstack/react-query";
-
-// const Page =  () => {
-//   const trpc = useTRPC();
-
-//   const {data:users} = useQuery(trpc.getUsers.queryOptions());
-
-
-//   return <div>
-//     {JSON.stringify(users)}
-//   </div>
-// }
-
-// export default Page;
