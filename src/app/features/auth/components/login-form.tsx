@@ -91,6 +91,7 @@ export const LoginForm = () => {
                                     disabled={isPending}
                                     className="w-full"
                                     >
+                                        <Image alt="GitHub" src="/logos/github.svg" width={20} height={20}/>
                                         Continue with GitHub
                                     </Button>
                                     <Button 
@@ -99,6 +100,7 @@ export const LoginForm = () => {
                                     disabled={isPending}
                                     className="w-full"
                                     >
+                                        <Image alt="GitHub" src="/logos/google.svg" width={20} height={20}/>
                                         Continue with Google
                                     </Button>
                                 </div>
