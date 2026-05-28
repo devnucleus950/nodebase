@@ -30,7 +30,7 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { auth } from "@/lib/auth";
-import  { cn } from "@/lib/utils"
+
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 
@@ -93,6 +93,7 @@ export const RegisterForm = () => {
                                     disabled={isPending}
                                     className="w-full"
                                     >
+                                        <Image alt="GitHub" src="/logos/github.svg" width={20} height={20}/>
                                         Continue with GitHub
                                     </Button>
                                     <Button 
@@ -101,6 +102,7 @@ export const RegisterForm = () => {
                                     disabled={isPending}
                                     className="w-full"
                                     >
+                                        <Image alt="GitHub" src="/logos/google.svg" width={20} height={20}/>
                                         Continue with Google
                                     </Button>
                                 </div>

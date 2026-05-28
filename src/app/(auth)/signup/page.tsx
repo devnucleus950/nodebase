@@ -6,14 +6,7 @@ const Page = async () => {
 
     await requireUnauth();
 
-    return (
-        <div className="flex justify-center items-center py-5">
-            <div className="w-xs md:w-md  ">
-                <RegisterForm/>
-            </div>
-        </div>
-        
-    )
+    return <RegisterForm/>
 } 
 
 
