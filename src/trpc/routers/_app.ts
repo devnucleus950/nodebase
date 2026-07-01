@@ -4,10 +4,13 @@ import prisma from '@/lib/db';
 
 import { generateText } from "ai"
 import { google } from "@ai-sdk/google"
+import { TRPCError } from '@trpc/server';
 
 export const appRouter = createTRPCRouter({
 
   testAI : protectedProcedure.mutation( async () => {
+
+
     await inngest.send({
       name: "execute/ai"
     })

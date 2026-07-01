@@ -20,7 +20,12 @@ export const execute = inngest.createFunction(
             {
                 model:google("gemini-2.5-flash"),
                 system:"You are a helpful assistant",
-                prompt:"What is 2 + 2 ?"
+                prompt:"What is 2 + 2 ?",
+                experimental_telemetry: {
+                    isEnabled: true,
+                    recordInputs:true,
+                    recordOutputs:true,
+                },
             }
         )
 
@@ -30,7 +35,12 @@ export const execute = inngest.createFunction(
             {
                 model:openai("gpt-4.1"),
                 system:"You are a helpful assistant",
-                prompt:"What is 2 + 2 ?"
+                prompt:"What is 2 + 2 ?",
+                experimental_telemetry: {
+                    isEnabled: true,
+                    recordInputs:true,
+                    recordOutputs:true,
+                },
             }
         )
 
@@ -40,7 +50,12 @@ export const execute = inngest.createFunction(
             {
                 model:anthropic("claude-3-haiku-20240307"),
                 system:"You are a helpful assistant",
-                prompt:"What is 2 + 2 ?"
+                prompt:"What is 2 + 2 ?",
+                experimental_telemetry: {
+                    isEnabled: true,
+                    recordInputs:true,
+                    recordOutputs:true,
+                },
             }
         )
 

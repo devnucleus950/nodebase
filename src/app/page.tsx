@@ -20,6 +20,9 @@ export default  function Home  () {
   const testAI = useMutation(trpc.testAI.mutationOptions({
     onSuccess: () => {
       toast.success("AI Job queued")
+    },
+    onError: () => {
+      toast.error("Something went wrong")
     }
   }));
 
